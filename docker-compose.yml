@@ -26,13 +26,14 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
     networks:
       app_network:
 
   java_app:
-    container_name: java_app
+    # container_name: java_app
     image: dav046/java_app:1.0.0
-    # build: ./
+    build: ./
     ports:
       - "8080:8080"
     environment:
@@ -42,6 +43,7 @@ services:
       - API_SECRET=root
     depends_on:
       - java_db
+    restart: always
     networks:
       app_network:
 
@@ -56,6 +58,7 @@ services:
     depends_on:
       - java_db
       - java_app
+    restart: always
     networks:
       - app_network
 
