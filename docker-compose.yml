@@ -27,13 +27,17 @@ services:
       - mysql-data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'  # Limita el contenedor a usar un 50% de un CPU
     networks:
       app_network:
 
   java_app:
     # container_name: java_app
     image: dav046/java_app:1.0.0
-    build: ./
+    # build: ./
     ports:
       - "8080:8080"
     environment:
