@@ -30,7 +30,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'  # Limita el contenedor a usar un 50% de un CPU
+          cpus: '0.6'  # Limita el contenedor a usar un 50% de un CPU
     networks:
       app_network:
 
