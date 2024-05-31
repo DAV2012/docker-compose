@@ -26,11 +26,12 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./my.cnf:/etc/mysql/my.cnf
     restart: always
     deploy:
       resources:
         limits:
-          cpus: '0.6'  # Limita el contenedor a usar un 50% de un CPU
+          cpus: '0.25'  # Limita el contenedor a usar un 50% de un CPU
     networks:
       app_network:
 
@@ -48,6 +49,10 @@ services:
     depends_on:
       - java_db
     restart: always
+     deploy:
+      resources:
+        limits:
+          cpus: '0.25'  # Limita el contenedor a usar un 50% de un CPU
     networks:
       app_network:
 
@@ -63,6 +68,10 @@ services:
       - java_db
       - java_app
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'  # Limita el contenedor a usar un 50% de un CPU
     networks:
       - app_network
 
