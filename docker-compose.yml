@@ -49,7 +49,7 @@ services:
     depends_on:
       - java_db
     restart: always
-     deploy:
+    deploy:
       resources:
         limits:
           cpus: '0.25'  # Limita el contenedor a usar un 50% de un CPU
