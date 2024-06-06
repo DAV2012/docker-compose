@@ -43,8 +43,8 @@ services:
     environment:
       # - DATABASE_URL=jdbc:mysql://java_db:3306/dbcivera
       - DATABASE_URL=jdbc:mysql://dbcivera.cxkkm26o4nxx.sa-east-1.rds.amazonaws.com:3306/dbcivera
-      - DATABASE_USERNAME=admin
-      - DATABASE_PASSWORD=Delunoalseis6.
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=root1413
       - API_SECRET=root
     # depends_on:
     #   - java_db
